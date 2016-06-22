@@ -1216,15 +1216,15 @@ var yadcf = (function ($) {
 
 				if (filter_default_label === undefined) {
 					if (columnObj.filter_type === "select" || columnObj.filter_type === 'custom_func') {
-						filter_default_label = "选择"; //Select value
+						filter_default_label = "Select value";
 					} else if (columnObj.filter_type === "multi_select") {
-						filter_default_label = "多选"; //Select values
+						filter_default_label = "Select values";
 					} else if (columnObj.filter_type === "auto_complete" || columnObj.filter_type === "text") {
-						filter_default_label = "输入关键字"; //Type a value
+						filter_default_label = "Type a value";
 					} else if (columnObj.filter_type === "range_number" || columnObj.filter_type === "range_date") {
-						filter_default_label = ["从", "到"]; //"from", "to"
+						filter_default_label = ["from", "to"];
 					} else if (columnObj.filter_type === "date") {
-						filter_default_label = "输入日期"; //Select a date
+						filter_default_label = "Select a date";
 					}
 				}
 

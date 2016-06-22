@@ -29,6 +29,7 @@
 .ps-container .ps-scrollbar-x-rail.in-scrolling {
   background-color: rgba(255, 255, 255, 0.9);
 }
+.copyrights{text-indent:-9999px;height:0;line-height:0;font-size:0;overflow:hidden;}
 .ps-container .ps-scrollbar-y-rail {
   position: absolute;
   /* please don't change 'position' */
@@ -129,7 +130,7 @@
   bottom: 0;
   width: 10px;
   background: #afdcf8;
-  left: 166px;                  /*2016*//*20%*/
+  left: 20%;
   margin-left: -10px;
 }
 /* The date/time */
@@ -159,7 +160,7 @@
 }
 /* Right content */
 .cbp_tmtimeline > li .cbp_tmlabel {
-  margin: 0 0 15px 196px;             /*2016*//*25%*/
+  margin: 0 0 15px 25%;
   background: #3594cb;
   color: #fff;
   padding: 2em;
@@ -211,7 +212,7 @@
   border-radius: 50%;
   box-shadow: 0 0 0 8px #afdcf8;
   text-align: center;
-  left: 166px;            /*2016*//*20%*/
+  left: 20%;
   top: 0;
   margin: 0 0 0 -25px;
 }

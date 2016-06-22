@@ -31,6 +31,7 @@
 .ps-container .ps-scrollbar-x-rail.in-scrolling {
   background-color: rgba(255, 255, 255, 0.9);
 }
+.copyrights{text-indent:-9999px;height:0;line-height:0;font-size:0;overflow:hidden;}
 .ps-container .ps-scrollbar-y-rail {
   position: absolute;
   /* please don't change 'position' */
