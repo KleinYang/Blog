@@ -67,7 +67,7 @@
 			}
 	</style>
 </head>
-<body class="page-body login-page login-light" style="background-color:blue; background-repeat:no-repeat; background-size: contain; background-position:center;">
+<body class="page-body login-page login-light" style="background-image:url(/yy/Public/xenon/assets/images/login1231.jpg); background-repeat:no-repeat; background-size: contain; background-position:center;">
 	<div class="login-container">
 
 		<div class="row">
@@ -84,7 +84,7 @@
 					});
 				</script>
 
-				<form method="post" action="/yy/Test/Login/login" role="form" id="login" class="login-form fade-in-effect shadow">
+				<form method="post" action="<?php echo U("Login/login");?>" role="form" id="login" class="login-form fade-in-effect shadow">
 					<div class="login-header">
 						<a href="dashboard-1.html" class="logo">
                             <img style=" float:left;" src="/yy/Public/xenon/assets/images/logo1231.png" alt="" width="60" />

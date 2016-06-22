@@ -3,7 +3,7 @@
  <HEAD>
   <TITLE> New Document </TITLE>
   <META HTTP-EQUIV="Content-Type" CONTENT="text/html ;charset=utf-8">
-  <META HTTP-EQUIV="Refresh" CONTENT="2; url=/yy/Test/Login/../index">
+  <META HTTP-EQUIV="Refresh" CONTENT="2; url=<?php echo U("Login/index");?>">
  </HEAD>
  <BODY>
   非法用户

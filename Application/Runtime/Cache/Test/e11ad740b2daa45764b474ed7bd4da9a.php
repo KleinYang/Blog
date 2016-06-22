@@ -20,7 +20,7 @@
           <li><a href="">模板分享</a></li>
           <li><a href="">学无止境</a></li>
           <li><a href="">留言板</a></li>
-          <li><a href="/yy/Test/Index/../login">后台管理</a></li>
+          <li><a href="<?php echo U("Login/index");?>">后台管理</a></li>
         </ul>
       </nav>
     </header>
