@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>yy小站</title>
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+<link rel="stylesheet" href="__PUBLIC__/css/base.css">
+
+</head>
+<body>
+<div class="wrapper">
+  <div style="width:80%; margin:0px auto;">
+    <header>
+      <h1 id="logo"><a href="/"><img src="__PUBLIC__/images/logo.jpg" width="260" height="60" alt=""></a></h1>
+      <nav>
+        <ul>
+          <li id="active"><a href="">网站首页</a></li>
+          <li><a href="">慢生活</a></li>
+          <li><a href="">闲言碎语</a></li>
+          <li><a href="">模板分享</a></li>
+          <li><a href="">学无止境</a></li>
+          <li><a href="">留言板</a></li>
+          <li><a href="{:U("Admin/Login/login")}">后台管理</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="banner">
+      <div class="headerPic"><a href="#"><span>凡王之血，必以剑终</span></a></div>
+      <div class="websiteDescription" style="float:right;">
+        <h2>凡王之血，必以剑终</h2>
+        <p>设使天下无有孤，不知天下几人称霸，几人称王。</p>
+      </div>
+    </div>
+    <div class="mainContent">
+      <block name="mainContent"></block>
+    </div>
+    <div class="sidebar">
+      <div class="news">
+        <h3>
+          <p>最新<span>文章</span></p>
+        </h3>
+        <ul class="rank">
+          <li><a href="#" title="Column 三栏布局 个人网站模板" target="_blank">Column 三栏布局 个人网站模板</a></li>
+        </ul>
+        <h3 class="ph">
+          <p>点击<span>排行</span></p>
+        </h3>
+        <ul class="paih">
+          <li><a href="#" title="Column 三栏布局 个人网站模板" target="_blank">Column 三栏布局 个人网站模板</a></li>
+        </ul>
+        <h3 class="links">
+          <p>友情<span>链接</span></p>
+        </h3>
+        <ul class="website">
+          <li><a href="#">个人博客</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="clearfloat">
+      <block name="clearfloat"></block>
+    </div>
+    <footer>
+      <block name="footer"></block>
+    </footer>
+  </div>
+</div>
+</body>
+</html>
