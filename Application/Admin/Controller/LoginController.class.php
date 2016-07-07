@@ -3,6 +3,7 @@ namespace Admin\Controller;
 use Think\Controller;
 use Think\Model;
 use Think\Log;
+use Common\Controller\CaptchaToolController;
 header("content-type:text/html;charset=utf-8");
 class LoginController extends Controller {
     public function login(){
@@ -12,6 +13,13 @@ class LoginController extends Controller {
     public function signin() {
       $model_admin = D('signin');
       //var_dump($_REQUEST);
+      if(!$model_admin->checkByCaptcha($_POST['captcha'])) {
+        $this->assign("error", '验证码错误');
+        $this->assign("waitSecond", 2);
+        $this->assign("jumpUrl", "Login/login");
+        $this->display('Public:error');
+        exit();
+      }
   		if ($model_admin->checkByLogin($_POST['username'], $_POST['passwd'])) {
   			//验证通过
         $_SESSION['is_login'] = 'yes';
@@ -32,5 +40,10 @@ class LoginController extends Controller {
 HTML;
       $this->show($error);
   		}
+    }
+
+    public function captcha() {
+      $tool_captcha = new CaptchaToolController;
+      $tool_captcha->generate();
     }
 }

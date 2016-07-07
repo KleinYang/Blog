@@ -9,5 +9,9 @@ class SigninModel extends Model {
 		$result = M()->query($sql);
     return (bool)$result;
 	}
+
+  public function checkByCaptcha($captcha) {
+    return strtoupper($captcha) == strtoupper($_SESSION['captcha_str']);
+  }
 }
 ?>
