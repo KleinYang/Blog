@@ -6,8 +6,8 @@ class SigninModel extends Model {
 		//形成SQL
 		$sql = "select * from user where username='$admin_name' and passwd=md5('$admin_pass')";
 		//执行
-		$result = M()->query($sql);
-    return (bool)$result;
+		$result = M()->query($sql)[0];
+    return $result;
 	}
 
   public function checkByCaptcha($captcha) {

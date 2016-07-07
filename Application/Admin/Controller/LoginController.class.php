@@ -20,8 +20,12 @@ class LoginController extends Controller {
         $this->display('Public:error');
         exit();
       }
-  		if ($model_admin->checkByLogin($_POST['username'], $_POST['passwd'])) {
+  		if ($user = $model_admin->checkByLogin($_POST['username'], $_POST['passwd'])) {
   			//验证通过
+        if(isset($_POST['rememberme'])&&$_POST['rememberme']=='1'){
+          setcookie('yy_userid', $user['user_id'], PHP_INT_MAX);
+          setcookie('yy_passwd', md5('e10ui'.$user['passwd'].'3ug0x'), PHP_INT_MAX);
+        }
         $_SESSION['is_login'] = 'yes';
         $this->redirect('Index/index');
   		} else {
