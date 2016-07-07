@@ -21,7 +21,7 @@ class CaptchaToolController extends Controller{
     imagerectangle($img, 0, 0, 144, 19, $white);
 
     //写码值
-    $chars = 'ABCDEFGHIJKLMNPQRSTUVWXYZ23456789';
+    $chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
     $captcha_str = '';
     for ($i=0, $strlen=strlen($chars); $i < 4; $i++) {
       $rand_key = mt_rand(0,$strlen-1);
