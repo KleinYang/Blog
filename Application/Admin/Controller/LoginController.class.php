@@ -23,10 +23,12 @@ class LoginController extends Controller {
   		if ($user = $model_admin->checkByLogin($_POST['username'], $_POST['passwd'])) {
   			//验证通过
         if(isset($_POST['rememberme'])&&$_POST['rememberme']=='1'){
-          setcookie('yy_userid', $user['user_id'], PHP_INT_MAX);
-          setcookie('yy_passwd', md5('e10ui'.$user['passwd'].'3ug0x'), PHP_INT_MAX);
+          setcookie('yy_userid', $user['user_id'], PHP_INT_MAX, '/');
+          setcookie('yy_passwd', md5('e10ui'.$user['passwd'].'3ug0x'), PHP_INT_MAX, '/');
         }
         $_SESSION['is_login'] = 'yes';
+        $_SESSION['userID'] = $user['user_id'];
+        $model_admin->updateLogInfo($user['user_id']);
         $this->redirect('Index/index');
   		} else {
   			//非法用户
@@ -49,5 +51,11 @@ HTML;
     public function captcha() {
       $tool_captcha = new CaptchaToolController;
       $tool_captcha->generate();
+    }
+
+    public function logout() {
+      $user = D('Signin');
+      $user->distroyLogInfo();
+      $this->redirect('Index/index');
     }
 }

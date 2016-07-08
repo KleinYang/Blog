@@ -13,5 +13,28 @@ class SigninModel extends Model {
   public function checkByCaptcha($captcha) {
     return strtoupper($captcha) == strtoupper($_SESSION['captcha_str']);
   }
+
+  public function checkByCookie() {
+    $user_id = $_COOKIE['yy_userid'];
+    $passwd = $_COOKIE['yy_passwd'];
+    $sql = "SELECT * FROM user WHERE user_id = $user_id AND md5(concat('e10ui', passwd, '3ug0x')) = '$passwd'";
+    //执行
+    $result = M()->query($sql)[0];
+    return (bool)$result;
+  }
+
+  public function distroyLogInfo() {
+    setcookie("yy_passwd", "", time()-3600, '/');
+    setcookie("yy_userid", "", time()-3600, '/');
+    @session_start();
+    session_destroy();
+  }
+
+  public function updateLogInfo($id) {
+    $ip = $_SERVER["REMOTE_ADDR"];
+    $time = time();
+    $sql = "UPDATE `user` SET `user_ip`='$ip', `login_time`=$time WHERE (`user_id`=$id)";
+    $result = M()->execute($sql);
+  }
 }
 ?>
