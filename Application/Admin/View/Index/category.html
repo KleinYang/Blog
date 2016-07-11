@@ -1,5 +1,11 @@
 <extend name="Public/base" />
 <block name="mainContent">
+  <style media="screen">
+    td{
+      vertical-align:middle !important;
+      color: black;
+    }
+  </style>
   <div class="panel panel-default">
 		<div class="panel-heading">
 			<h3 class="panel-title">分类管理</h3>
@@ -25,14 +31,14 @@
     "columns": [
         { "data": "category_name", "title": "分类名称" },
         {
-            "data": "category_id", "title": "操作",
-                "createdCell": function (nTd, sData, oData, iRow, iCol) {
-                    $(nTd).html("<a href='javascript:void(0);' " +
-                      "onclick='_editFun("+ JSON.stringify(oData) +")' "+
-                      'class="btn btn-info btn-sm btn-icon icon-left"'+">编辑</a>")
-                        .append("<a href='javascript:void(0);' onclick='_deleteFun(" + sData + ")'" +
-                        'class="btn btn-danger btn-sm btn-icon icon-left"'+">删除</a>");
-                }
+          "data": "category_id", "title": "操作",
+              "createdCell": function (nTd, sData, oData, iRow, iCol) {
+                  $(nTd).html("<a href='javascript:void(0);' " +
+                    "onclick='_editFun("+ JSON.stringify(oData) +")' "+
+                    'class="btn btn-info btn-sm btn-icon icon-left"'+">编辑</a>")
+                      .append("<a href='javascript:void(0);' onclick='_deleteFun(" + sData + ")'" +
+                      'class="btn btn-danger btn-sm btn-icon icon-left"'+">删除</a>");
+              }
         },
           ],
           "initComplete": function (oSettings, json) {

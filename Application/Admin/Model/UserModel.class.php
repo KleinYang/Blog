@@ -1,7 +1,7 @@
 <?php
-namespace Admin\Model;
+namespace User\Model;
 use Think\Model;
-class SigninModel extends Model {
+class UserModel extends Model {
   public function checkByLogin($admin_name, $admin_pass) {
 		//形成SQL
 		$sql = "select * from user where username='$admin_name' and passwd=md5('$admin_pass')";
@@ -32,9 +32,10 @@ class SigninModel extends Model {
 
   public function updateLogInfo($id) {
     $ip = $_SERVER["REMOTE_ADDR"];
-    $time = time();
-    $sql = "UPDATE `user` SET `user_ip`='$ip', `login_time`=$time WHERE (`user_id`=$id)";
+    $time = date("Y-m-d H:i:s", time());
+    $sql = "UPDATE `user` SET `user_ip`='$ip', `login_time`='$time' WHERE (`user_id`=$id)";
     $result = M()->execute($sql);
   }
+
 }
 ?>

@@ -11,24 +11,24 @@ class LoginController extends Controller {
     }
 
     public function signin() {
-      $model_admin = D('signin');
+      $user = D('User');
       //var_dump($_REQUEST);
-      if(!$model_admin->checkByCaptcha($_POST['captcha'])) {
+      if(!$user->checkByCaptcha($_POST['captcha'])) {
         $this->assign("error", '验证码错误');
         $this->assign("waitSecond", 2);
         $this->assign("jumpUrl", "Login/login");
         $this->display('Public:error');
         exit();
       }
-  		if ($user = $model_admin->checkByLogin($_POST['username'], $_POST['passwd'])) {
+  		if ($userInfo = $user->checkByLogin($_POST['username'], $_POST['passwd'])) {
   			//验证通过
         if(isset($_POST['rememberme'])&&$_POST['rememberme']=='1'){
-          setcookie('yy_userid', $user['user_id'], PHP_INT_MAX, '/');
-          setcookie('yy_passwd', md5('e10ui'.$user['passwd'].'3ug0x'), PHP_INT_MAX, '/');
+          setcookie('yy_userid', $userInfo['user_id'], PHP_INT_MAX, '/');
+          setcookie('yy_passwd', md5('e10ui'.$userInfo['passwd'].'3ug0x'), PHP_INT_MAX, '/');
         }
         $_SESSION['is_login'] = 'yes';
-        $_SESSION['userID'] = $user['user_id'];
-        $model_admin->updateLogInfo($user['user_id']);
+        $_SESSION['userID'] = $userInfo['user_id'];
+        $user->updateLogInfo($userInfo['user_id']);
         $this->redirect('Index/index');
   		} else {
   			//非法用户
@@ -54,7 +54,7 @@ HTML;
     }
 
     public function logout() {
-      $user = D('Signin');
+      $user = D('User');
       $user->distroyLogInfo();
       $this->redirect('Index/index');
     }

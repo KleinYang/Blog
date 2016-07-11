@@ -9,6 +9,7 @@ class AdminBaseController extends Controller {
     parent::__construct();
     @session_start();
     $this->checkLogin();
+    $this->assign('username', $this->getUserName());
   }
 
   protected function checkLogin() {
@@ -16,20 +17,22 @@ class AdminBaseController extends Controller {
 			//继续执行
 		} elseif(isset($_COOKIE['yy_userid']) && isset($_COOKIE['yy_passwd'])) {
       //存在cookie，验证
-      $admin = D('signin');
-      if(!$res = $admin->checkByCookie()) {
+      $user = D('user');
+      if(!$res = $user->checkByCookie()) {
         $this->redirect('Login/login');
       }
       $_SESSION['is_login'] ='yes';
       $_SESSION['userID'] = $_COOKIE['yy_userid'];
-      $admin->updateLogInfo($_COOKIE['yy_userid']);
+      $user->updateLogInfo($_COOKIE['yy_userid']);
     } else {
 			$this->redirect('Login/login');
 		}
 	}
 
-  public function getUserName($id) {
-    $admin = D('signin');
+  public function getUserName() {
+    $user = M('user');
+    $id = $_SESSION['userID'];
+    return $user->where("user_id=$id")->select()[0]['username'];
   }
 
 }

@@ -18,17 +18,18 @@ class IndexController extends AdminBaseController {
     $this->assign('maxtime', get_cfg_var("max_execution_time")."秒 ");
     $this->assign('timezone', date_default_timezone_get());
     $this->assign('port', $_SERVER['SERVER_PORT']);
+    $this->assign('title', '首页');
     $this->display();
   }
 
   public function category() {
+    $this->assign('title', '分类管理');
     $this->display();
   }
 
   public function categoryList() {
     $categoryList = M('category');
     $categoryArray[data] = $categoryList->select();
-    // var_dump($categoryArray);
     echo json_encode($categoryArray);
   }
 }

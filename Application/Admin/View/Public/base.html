@@ -10,10 +10,11 @@
     <link rel="stylesheet" href="__PUBLIC__/xenon/assets/css/bootstrap.css">
     <script src="__PUBLIC__/xenon/assets/js/jquery-1.11.1.min.js"></script>
     <script src="__PUBLIC__/xenon/assets/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="__PUBLIC__/xenon/assets/js/datatables/dataTables.bootstrap.css">
-<link rel="stylesheet" href="__PUBLIC__/xenon/assets/css/xenon-core.css">
+    <link rel="stylesheet" href="__PUBLIC__/xenon/assets/js/datatables/dataTables.bootstrap.css">
+    <link rel="stylesheet" href="__PUBLIC__/xenon/assets/css/xenon-core.css">
+    <link rel="stylesheet" href="__PUBLIC__/css/jquery.dataTables.min.css">
 
-    <title></title>
+    <title>{$title}</title>
   </head>
   <body>
     <div class="col-lg-10" style="margin: auto;position:absolute; top:0; left:0; bottom:0; right:0;">
@@ -32,7 +33,7 @@
             <li><a href="#"  onclick="ShowToDoList()">上传照片</a></li>
           </ul>
           <div id="send_info" style="padding: 5px 10px 0 0; clear:right;text-align: right; color: #FF9900;width:40%;float: right;">
-                  <a href="#" class="fix-submenu">欢迎你 {$userInfo['username']}</a>
+            <a href="#" class="fix-submenu">欢迎你 {$username}</a>
             <a href="{:U('Login/logout')}" target="_top" class="fix-submenu">退出</a>
           </div>
               <div id="load-div" style="padding: 5px 10px 0 0; text-align: right; color: #FF9900; display: none;width:40%;float:right;"><img src="__PUBLIC__/images/top_loader.gif" width="16" height="16" alt="正在处理您的请求..." style="vertical-align: middle" /> 正在处理您的请求...</div>
@@ -135,7 +136,7 @@
 
 </html>
 
-<link rel="stylesheet" href="__PUBLIC__/css/jquery.dataTables.min.css">
+
 <script src="__PUBLIC__/js/jquery.dataTables.min.js"></script>
 
 
